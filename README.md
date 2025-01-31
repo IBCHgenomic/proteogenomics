@@ -1,5 +1,5 @@
-# proteome-model
- - rust crate for protein model enrichment for specific domain.
+# proteome-hmm
+ - rust crate for hmm domain search, selection and annotation mapper. 
  
  ```
   cargo build 
