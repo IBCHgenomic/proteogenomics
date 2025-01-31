@@ -13,35 +13,30 @@ pub struct CommandParse {
 
 #[derive(Subcommand, Debug)]
 pub enum Commands {
-    PDBId {
-        /// please provide the path to the pdb file
-        pdbfile: String,
-        output: String,
+    /// select the targets from the hmm.
+    TargetHMM {
+        /// provide the path to the hmm file
+        hmmpath: String,
+        /// filter according to the target description
+        targetdesc: String,
     },
-    /// extract the sequence of the pdf file
-    PDBSequence {
-       pdbfile: String,
+    /// select the scores from the hmm
+    ScoreHMM {
+        /// provide the path to the hmm file
+        hmmpath:String,
+        /// filter according to the score
+        score: String,
     },
-    /// calculate the euclidean distance bettwen two chain coordinates
-    EuclideanComparative{
-     /// provide the pdb file
-     pdbfile: String,
-     /// provide the chain to be selected
-     chain: String,
-     /// provide the residue 1
-     residue1: String,
-     /// provide the resiude 2
-     residue2: String,
-     /// provide the atom1
-     atom1: String,
-     /// provide the atom2
-     atom2: String,
+    /// select the evalues from the hmm
+    EvalueHMM{
+        /// provide the path to the hmm file
+        hmmpath: String,
+        /// filter according to the evalue
+        evalue: String,
     },
-    /// calculates the euclidean distance for all chain atoms
-    EuclideanAll {
-     /// provide the pdb file
-     pdbfile: String,
-     /// provide the chain
-     chain: String,
+    /// prepare the unique counts of the domains
+    Targetcounts {
+       /// provide the path to the hmm file
+       hmmpath: String,
     }
 }
