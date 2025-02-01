@@ -1,5 +1,6 @@
 mod args;
 mod count;
+mod evaltarget;
 mod evalue;
 mod proteome;
 mod score;
@@ -7,6 +8,7 @@ mod target;
 use crate::args::CommandParse;
 use crate::args::Commands;
 use crate::count::hmmcount;
+use crate::evaltarget::hmmevaltarget;
 use crate::evalue::hmmevalue;
 use crate::score::hmmscore;
 use crate::target::hmmtarget;
@@ -18,7 +20,8 @@ use clap::Parser;
 * Universitat Potsdam.
 *
 * hmm protein domain analyzer and selector. This is the last piece of
-* the code i wrote at Universitat Potsdam and i thank you.
+* the code i wrote at Universitat Potsdam and i thank you Universitat Potsdam.
+and everyone around.
 * */
 
 fn main() {
@@ -30,7 +33,7 @@ fn main() {
         } => {
             let command = hmmtarget(hmmpath, &targetdesc.clone()).unwrap();
             println!(
-                "The atom coordinates for the following pdbf file are: {:?}",
+                "The target from the corresponding hmm files have been filtered: {:?}",
                 command
             );
         }
@@ -52,6 +55,17 @@ fn main() {
             let command = hmmcount(hmmpath).unwrap();
             println!(
                 "The domain aligned targets for the enrichment are: {:?}",
+                command
+            );
+        }
+        Commands::EvalTarget {
+            hmmpath,
+            evalue,
+            target,
+        } => {
+            let command = hmmevaltarget(hmmpath, evalue, target).unwrap();
+            println!(
+                "The filtered evalues along with the target have been written: {:?}",
                 command
             );
         }

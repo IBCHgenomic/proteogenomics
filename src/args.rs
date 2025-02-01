@@ -3,7 +3,7 @@ use clap::{Parser, Subcommand};
 #[command(
     name = "evolutionary-proteome",
     version = "1.0",
-    about = "set of evolutionary analysis for proteome"
+    about = "hmm proteome analyze"
 )]
 pub struct CommandParse {
     /// subcommands for the specific actions
@@ -23,20 +23,29 @@ pub enum Commands {
     /// select the scores from the hmm
     ScoreHMM {
         /// provide the path to the hmm file
-        hmmpath:String,
+        hmmpath: String,
         /// filter according to the score
         score: String,
     },
     /// select the evalues from the hmm
-    EvalueHMM{
+    EvalueHMM {
         /// provide the path to the hmm file
         hmmpath: String,
         /// filter according to the evalue
         evalue: String,
     },
+    /// select the targets based on evalue and target
+    EvalTarget {
+        /// provide the path to the hmm file
+        hmmpath: String,
+        /// provide the evalue selector
+        evalue: String,
+        /// provide the target selector
+        target: String,
+    },
     /// prepare the unique counts of the domains
     Targetcounts {
-       /// provide the path to the hmm file
-       hmmpath: String,
-    }
+        /// provide the path to the hmm file
+        hmmpath: String,
+    },
 }

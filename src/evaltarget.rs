@@ -11,7 +11,11 @@ Date: 2025-1-1
 
 */
 
-pub fn hmmevalue(path: &str, evalue: &str) -> Result<Vec<Proteinanalyze>, Box<dyn Error>> {
+pub fn hmmevaltarget(
+    path: &str,
+    evalue: &str,
+    target: &str,
+) -> Result<Vec<Proteinanalyze>, Box<dyn Error>> {
     let mut hmmvec: Vec<Proteinanalyze> = Vec::new();
     let mut filterevalue: Vec<Proteinanalyze> = Vec::new();
     let fileopen = File::open(path).expect("file not found");
@@ -43,7 +47,7 @@ pub fn hmmevalue(path: &str, evalue: &str) -> Result<Vec<Proteinanalyze>, Box<dy
         }
     }
     for i in hmmvec.iter() {
-        if i.evalue >= evalue.parse::<f32>().unwrap() {
+        if i.evalue >= evalue.parse::<f32>().unwrap() && i.desc == target {
             filterevalue.push(Proteinanalyze {
                 targetname: i.targetname.clone(),
                 tlength: i.tlength,
@@ -62,7 +66,7 @@ pub fn hmmevalue(path: &str, evalue: &str) -> Result<Vec<Proteinanalyze>, Box<dy
         }
     }
 
-    let mut filewrite = File::create("evalue-filter-with-all-targets.txt").expect("file not found");
+    let mut filewrite = File::create("evaltarget-filter.txt").expect("file not found");
     for i in filterevalue.iter() {
         writeln!(
             filewrite,
@@ -83,51 +87,5 @@ pub fn hmmevalue(path: &str, evalue: &str) -> Result<Vec<Proteinanalyze>, Box<dy
         )
         .expect("line not found");
     }
-
-    let mut evaluesvector: Vec<Proteinanalyze> = Vec::new();
-    for i in hmmvec.iter() {
-        if i.evalue >= evalue.parse::<f32>().unwrap() && i.desc == "-" {
-            continue;
-        } else if i.evalue >= evalue.parse::<f32>().unwrap() && i.desc != "-" {
-            evaluesvector.push(Proteinanalyze {
-                targetname: i.targetname.clone(),
-                tlength: i.tlength,
-                queryname: i.queryname.clone(),
-                querylength: i.querylength,
-                evalue: i.evalue,
-                score: i.score,
-                val1: i.val1,
-                val2: i.val2,
-                ed1: i.ed1,
-                ed2: i.ed2,
-                al1: i.al1,
-                al2: i.al2,
-                desc: i.desc.clone(),
-            });
-        }
-    }
-
-    let mut evaluesvector_write =
-        File::create("evalues-filter-with-target-annotated.txt").expect("file not found");
-    for i in evaluesvector.iter() {
-        writeln!(
-            evaluesvector_write,
-            "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}",
-            i.targetname,
-            i.tlength,
-            i.queryname,
-            i.evalue,
-            i.score,
-            i.val1,
-            i.val2,
-            i.ed1,
-            i.ed2,
-            i.al1,
-            i.al2,
-            i.desc
-        )
-        .expect("line not found");
-    }
-
     Ok::<Vec<Proteinanalyze>, Box<dyn Error>>(filterevalue)
 }

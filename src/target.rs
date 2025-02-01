@@ -1,7 +1,14 @@
 use crate::proteome::Proteinanalyze;
 use std::error::Error;
 use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::io::{BufRead, BufReader, Write};
+
+/*
+   Author: Gaurav Sablok
+   Universitat Potsdam and SLB Potsdam
+   Date: 2025-1-1
+
+*/
 
 pub fn hmmtarget(path: &str, target: &str) -> Result<Vec<Proteinanalyze>, Box<dyn Error>> {
     let mut hmmvec: Vec<Proteinanalyze> = Vec::new();
@@ -53,5 +60,27 @@ pub fn hmmtarget(path: &str, target: &str) -> Result<Vec<Proteinanalyze>, Box<dy
             });
         }
     }
+    let mut newfile = File::create("filtered-target.txt").expect("file not found");
+    for i in filtertarget.iter() {
+        writeln!(
+            newfile,
+            "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}",
+            i.targetname,
+            i.tlength,
+            i.queryname,
+            i.querylength,
+            i.evalue,
+            i.score,
+            i.val1,
+            i.val2,
+            i.ed1,
+            i.ed2,
+            i.al1,
+            i.al2,
+            i.desc
+        )
+        .expect("line not found");
+    }
+
     Ok::<Vec<Proteinanalyze>, Box<dyn Error>>(filtertarget)
 }
