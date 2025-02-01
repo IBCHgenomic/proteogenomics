@@ -1,5 +1,6 @@
 # proteome-hmm
- - rust crate for hmm domain search, selection and annotation mapper. 
+ - rust crate for hmm domain search, selection and annotation mapper.
+ - please see the last commit message and if it says compiled binary then it is completed or else still in development version.
  
  ```
   cargo build 
