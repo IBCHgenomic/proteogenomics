@@ -1,8 +1,8 @@
+use std::collections::HashMap;
 use std::collections::HashSet;
 use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-
 /*
 
   Author Gaurav Sablok
@@ -12,7 +12,7 @@ use std::io::{BufRead, BufReader};
 
 */
 
-pub fn hmmcount(path: &str) -> Result<Vec<(String, usize)>, Box<dyn Error>> {
+pub fn hmmcount(path: &str) -> Result<HashMap<String, usize>, Box<dyn Error>> {
     let fileopen = File::open(path).expect("file not found");
     let fileread = BufReader::new(fileopen);
     let mut functionhold: Vec<String> = Vec::new();
@@ -35,9 +35,10 @@ pub fn hmmcount(path: &str) -> Result<Vec<(String, usize)>, Box<dyn Error>> {
         .filter(|x| x.to_string() != "-")
         .collect::<HashSet<_>>();
 
-    for i in filteredhashset.iter() {
-        i
+    let mut unique: HashMap<String, usize> = HashMap::new();
+    for i in filteredhashset {
+        *unique.entry(i.to_string()).or_default() += 1;
     }
 
-    Ok::<Vec<(String, usize)>, Box<dyn Error>>(countindex)
+    Ok::<HashMap<String, usize>, Box<dyn Error>>(unique)
 }

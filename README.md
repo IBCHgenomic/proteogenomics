@@ -1,6 +1,6 @@
 # proteome-hmm
  - rust crate for hmm domain search, selection and annotation mapper. 
- 
+ - please see the last commit message and if it says compiled binary then it is completed or else still in development version. 
  ```
   cargo build 
  ```
@@ -73,6 +73,10 @@
 ➜  proteome-hmm git:(main) ✗ head -n 1 evalue-filter-with-all-targets.txt
  HTH_26  63      213     WP_003876921.1  0.000033        11.4    10      36      42      67      40      77      Cro/C1-type
 
+```
+```
+➜  proteome-hmm git:(main) ✗ ./target/debug/hmm-domain targetcounts ./sample-file/samplehmmalignment.txt
+The domain aligned targets for the enrichment are: {"Winged": 1, "Cro/C1-type": 1, "Domain": 1}
 ```
 
  Gaurav Sablok
