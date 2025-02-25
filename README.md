@@ -89,6 +89,7 @@
  The domain aligned targets for the enrichment are: {"Winged": 1, "Cro/C1-type": 1, "Domain": 1}
 
 ```
+```
  euclidean-comparative sample.pdb A 10 10 N CA
  The eucledian distance between to given coordinates of the same chain is 1.4656264
  euclidean-comparative sample.pdb A 1 1 N CA
