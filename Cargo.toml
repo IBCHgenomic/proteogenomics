@@ -2,6 +2,12 @@
 name = "hmm-domain"
 version = "0.1.0"
 edition = "2021"
+readme = "README.md"
+license = "MIT"
+authors = [ "Gaurav Sablok <gauravcodepro@gmail.com>"]
+description = "protein genomics analyzers"
+homepage = "https://github.com/sciencegenome/proteogenomics"
+repository = "https://github.com/sciencegenome/proteogenomics"
 
 [dependencies]
 clap = { version = "4.5.27", features = ["derive"] }

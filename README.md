@@ -1,12 +1,15 @@
-# proteome-hmm
- - rust crate for hmm domain search, selection and annotation mapper. 
+# proteogenomics
+
+ - rust crate for hmm domain search, selection and annotation mapper.
+ - pdb tools also merged into this crate. 
  - please see the last commit message and if it says compiled binary then it is completed or else still in development version. 
+ 
  ```
   cargo build 
  ```
 
-```
-➜  proteome-hmm git:(main) ✗ ./target/debug/hmm-domain -h
+ ```
+ proteogenomics git:(main) ✗ ./target/debug/hmm-domain -h
  hmm proteome analyze
 
  Usage: hmm-domain <COMMAND>
@@ -24,8 +27,8 @@
   -V, --version  Print version
 ```
 
-```
-➜  proteome-hmm git:(main) ✗ ./target/debug/hmm-domain score-hmm ./sample-file/samplehmmalignment.txt 12.5
+ ```
+ ➜  proteome-hmm git:(main) ✗ ./target/debug/hmm-domain score-hmm ./sample-file/samplehmmalignment.txt 12.5
  ==> filtered-scores-with-all-targets.txt <==
  HTH_26  63      WP_003872347.1  189     0.00000000000023        37.9    1       60      14      72      14      75      Cro/C1-type
  HTH_24  48      WP_003872375.1  193     0.0000023       13.8    17      37      34      54      33      54      Winged
