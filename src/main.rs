@@ -1,5 +1,6 @@
 mod args;
 mod count;
+mod euclidean;
 mod evaltarget;
 mod evalue;
 mod proteome;
@@ -8,6 +9,10 @@ mod target;
 use crate::args::CommandParse;
 use crate::args::Commands;
 use crate::count::hmmcount;
+use crate::euclidean::eucledianall;
+use crate::euclidean::euclediancomparativetwo;
+use crate::euclidean::pdbchainwrite;
+use crate::euclidean::pdbsequence;
 use crate::evaltarget::hmmevaltarget;
 use crate::evalue::hmmevalue;
 use crate::score::hmmscore;
@@ -15,14 +20,11 @@ use crate::target::hmmtarget;
 use clap::Parser;
 
 /*
-* Author Gaurav Sablok
-* Date: 2025-1-31
-* Universitat Potsdam.
-*
-* hmm protein domain analyzer and selector. This is the last piece of
-* the code i wrote at Universitat Potsdam and i thank you Universitat Potsdam.
-and everyone around.
-* */
+ Author Gaurav Sablok
+ Date: 2025-2-25
+ SLB Potsdam
+
+*/
 
 fn main() {
     let argsparse = CommandParse::parse();
@@ -66,6 +68,39 @@ fn main() {
             let command = hmmevaltarget(hmmpath, evalue, target).unwrap();
             println!(
                 "The filtered evalues along with the target have been written: {:?}",
+                command
+            );
+        }
+        Commands::PDBId { pdbfile, output } => {
+            let command = pdbchainwrite(pdbfile, output).unwrap();
+            println!(
+                "The atom coordinates for the following pdbf file are: {:?}",
+                command
+            );
+        }
+        Commands::PDBSequence { pdbfile } => {
+            let command = pdbsequence(pdbfile);
+            println!("The protein sequence is as follows: {:?}", command);
+        }
+        Commands::EuclideanComparative {
+            pdbfile,
+            chain,
+            residue1,
+            residue2,
+            atom1,
+            atom2,
+        } => {
+            let command =
+                euclediancomparativetwo(pdbfile, chain, residue1, residue2, atom1, atom2).unwrap();
+            println!(
+                "The eucledian distance between to given coordinates of the same chain is {:?}",
+                command
+            );
+        }
+        Commands::EuclideanAll { pdbfile, chain } => {
+            let command = eucledianall(pdbfile, chain).unwrap();
+            println!(
+                "The vector containing the eucleadian distance for those chain atoms are: {:?}",
                 command
             );
         }
