@@ -1,5 +1,7 @@
 # proteogenomics
 
+![](https://github.com/IBCHgenomic/eVaiutilities/blob/main/logo.png)
+
  - rust crate for hmm domain search, selection and annotation mapper.
  - it reports only chains with atoms for the id and sequence and euclidean distance for all irrespective of chain and atoms.
  - Euclidean distance chain comparsion for two point coordinate protein.
