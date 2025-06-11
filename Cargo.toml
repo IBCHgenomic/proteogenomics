@@ -4,10 +4,10 @@ version = "0.1.0"
 edition = "2021"
 readme = "README.md"
 license = "MIT"
-authors = [ "Gaurav Sablok <gauravcodepro@gmail.com>"]
+authors = [ "Gaurav Sablok <gsablok@ibch.poznan.pl>"]
 description = "protein genomics analyzers"
-homepage = "https://github.com/sciencegenome/proteogenomics"
-repository = "https://github.com/sciencegenome/proteogenomics"
+homepage = "https://github.com/IBCHgenomic/proteogenomics"
+repository = "https://github.com/IBCHgenomic/proteogenomics"
 
 [dependencies]
 clap = { version = "4.5.27", features = ["derive"] }
