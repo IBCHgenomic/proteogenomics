@@ -4,7 +4,8 @@
  - it reports only chains with atoms for the id and sequence and euclidean distance for all irrespective of chain and atoms.
  - Euclidean distance chain comparsion for two point coordinate protein.
  - Euclidean distance chain coordinate comparsion for all protein atoms of the chain.
- - please see the last commit message and if it says compiled binary then it is completed or else still in development version. 
+
+ 
  
  ```
   cargo build 
@@ -114,4 +115,13 @@
 
 ```
 
- Gaurav Sablok
+- To install windows version:
+```
+rustup component add llvm-tools
+rustup target add x86_64-pc-windows-msvc
+git clone https://github.com/IBCHgenomic/varlinker.git
+cd ensemblcov
+cargo xwin build --target x86_64-pc-windows-msvc
+```
+
+Gaurav Sablok Instytut Chemii Bioorganicznej Polskiej Akademii Nauk ul. Noskowskiego 12/14 | 61-704, Poznań Poland
