@@ -1,5 +1,7 @@
 # proteogenomics
 
+<img src="https://github.com/IBCHgenomic/proteogenomics/blob/main/proteogenomics.png" width="350" />
+
 ![](https://github.com/IBCHgenomic/eVaiutilities/blob/main/logo.png)
 
  - rust crate for hmm domain search, selection and annotation mapper.
