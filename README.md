@@ -1,6 +1,6 @@
 # proteogenomics
 
-<img src="https://github.com/IBCHgenomic/proteogenomics/blob/main/proteogenomics.png" width="350" />
+<img src="https://github.com/IBCHgenomic/proteogenomics/blob/main/proteogenomics.png" width="100" />
 
 ![](https://github.com/IBCHgenomic/eVaiutilities/blob/main/logo.png)
 
@@ -128,4 +128,7 @@ cd ensemblcov
 cargo xwin build --target x86_64-pc-windows-msvc
 ```
 
-Gaurav Sablok Instytut Chemii Bioorganicznej Polskiej Akademii Nauk ul. Noskowskiego 12/14 | 61-704, Poznań Poland
+Gaurav Sablok \
+Instytut Chemii Bioorganicznej Polskiej \
+Akademii Nauk ul. Noskowskiego 12/14 | 61-704, \
+Poznań Poland
