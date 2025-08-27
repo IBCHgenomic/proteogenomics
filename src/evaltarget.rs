@@ -10,8 +10,8 @@ Universitat Potsdam and SLB Potsdam
 Date: 2025-1-1
 
 */
-
-pub fn hmmevaltarget(
+#[tokio::main]
+pub async fn hmmevaltarget(
     path: &str,
     evalue: &str,
     target: &str,

@@ -13,8 +13,8 @@ use std::io::{BufRead, BufReader, Write};
  SLB Potsdam
 
 */
-
-pub fn pdbchainwrite(path: &str, output: &str) -> Result<String, Box<dyn Error>> {
+#[tokio::main]
+pub async fn pdbchainwrite(path: &str, output: &str) -> Result<String, Box<dyn Error>> {
     let pdbfile = File::open(path).expect("file not present");
     let pdbread = BufReader::new(pdbfile);
     let mut pdbanalyze: Vec<Pdbanalyze> = Vec::new();

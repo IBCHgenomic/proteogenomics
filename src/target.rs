@@ -10,7 +10,8 @@ use std::io::{BufRead, BufReader, Write};
 
 */
 
-pub fn hmmtarget(path: &str, target: &str) -> Result<Vec<Proteinanalyze>, Box<dyn Error>> {
+#[tokio::main]
+pub async fn hmmtarget(path: &str, target: &str) -> Result<Vec<Proteinanalyze>, Box<dyn Error>> {
     let mut hmmvec: Vec<Proteinanalyze> = Vec::new();
     let mut filtertarget: Vec<Proteinanalyze> = Vec::new();
     let fileopen = File::open(path).expect("file not found");

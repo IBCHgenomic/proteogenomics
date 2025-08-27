@@ -1,9 +1,14 @@
 use clap::{Parser, Subcommand};
 #[derive(Debug, Parser)]
 #[command(
-    name = "evolutionary-proteome",
+    name = "proteogenomics",
     version = "1.0",
-    about = "hmm proteome analyze"
+    about = "hmm proteome analyze
+    ************************************************
+   Gaurav Sablok, IBCH, PAN, Poznan, Poland,
+   https://portal.ichb.pl/laboratory-of-genomics/.
+   Email: gsablok@ibch.poznan.pl
+   ************************************************"
 )]
 pub struct CommandParse {
     /// subcommands for the specific actions

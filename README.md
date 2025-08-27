@@ -1,27 +1,31 @@
 # proteogenomics
-
-<img src="https://github.com/IBCHgenomic/proteogenomics/blob/main/proteogenomics.png" width="100" />
-
-![](https://github.com/IBCHgenomic/eVaiutilities/blob/main/logo.png)
-
  - rust crate for hmm domain search, selection and annotation mapper.
  - it reports only chains with atoms for the id and sequence and euclidean distance for all irrespective of chain and atoms.
  - Euclidean distance chain comparsion for two point coordinate protein.
  - Euclidean distance chain coordinate comparsion for all protein atoms of the chain.
 
- 
- 
+
  ```
-  cargo build 
+  cargo build
  ```
 
  ```
- gauravsablok@genome proteome-hmm main ? ./target/debug/proteogenomics -h
- proteome analyzers
+ _ __    _ __    ___   | |_    ___    ___     __ _    ___   _ __     ___    _ __ ___   (_)   ___   ___
+ | '_ \  | '__|  / _ \  | __|  / _ \  / _ \   / _` |  / _ \ | '_ \   / _ \  | '_ ` _ \  | |  / __| / __|
+ | |_) | | |    | (_) | | |_  |  __/ | (_) | | (_| | |  __/ | | | | | (_) | | | | | | | | | | (__  \__ \
+ | .__/  |_|     \___/   \__|  \___|  \___/   \__, |  \___| |_| |_|  \___/  |_| |_| |_| |_|  \___| |___/
+ |_|                                          |___/
 
- Usage: proteogenomics <COMMAND>
+hmm proteome analyze
+    ************************************************
+   Gaurav Sablok, IBCH, PAN, Poznan, Poland,
+   https://portal.ichb.pl/laboratory-of-genomics/.
+   Email: gsablok@ibch.poznan.pl
+   ************************************************
 
- Commands:
+Usage: proteogenomics <COMMAND>
+
+Commands:
   target-hmm             select the targets from the hmm
   score-hmm              select the scores from the hmm
   evalue-hmm             select the evalues from the hmm
@@ -33,7 +37,7 @@
   euclidean-all          calculates the euclidean distance for all chain atoms
   help                   Print this message or the help of the given subcommand(s)
 
- Options:
+Options:
   -h, --help     Print help
   -V, --version  Print version
 ```

@@ -9,8 +9,11 @@ use std::io::{BufRead, BufReader, Write};
   Date: 2025-1-1
 
 */
-
-pub fn hmmscore(path: &str, score: &str) -> Result<(String, Vec<Proteinanalyze>), Box<dyn Error>> {
+#[tokio::main]
+pub async fn hmmscore(
+    path: &str,
+    score: &str,
+) -> Result<(String, Vec<Proteinanalyze>), Box<dyn Error>> {
     let mut hmmvec: Vec<Proteinanalyze> = Vec::new();
     let mut filterscore: Vec<Proteinanalyze> = Vec::new();
     let fileopen = File::open(path).expect("file not found");

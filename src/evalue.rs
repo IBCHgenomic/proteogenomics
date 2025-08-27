@@ -10,8 +10,8 @@ Universitat Potsdam and SLB Potsdam
 Date: 2025-1-1
 
 */
-
-pub fn hmmevalue(path: &str, evalue: &str) -> Result<Vec<Proteinanalyze>, Box<dyn Error>> {
+#[tokio::main]
+pub async fn hmmevalue(path: &str, evalue: &str) -> Result<Vec<Proteinanalyze>, Box<dyn Error>> {
     let mut hmmvec: Vec<Proteinanalyze> = Vec::new();
     let mut filterevalue: Vec<Proteinanalyze> = Vec::new();
     let fileopen = File::open(path).expect("file not found");

@@ -11,8 +11,8 @@ use std::io::{BufRead, BufReader};
 
 
 */
-
-pub fn hmmcount(path: &str) -> Result<HashMap<String, usize>, Box<dyn Error>> {
+#[tokio::main]
+pub async fn hmmcount(path: &str) -> Result<HashMap<String, usize>, Box<dyn Error>> {
     let fileopen = File::open(path).expect("file not found");
     let fileread = BufReader::new(fileopen);
     let mut functionhold: Vec<String> = Vec::new();

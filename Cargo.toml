@@ -1,13 +1,15 @@
 [package]
 name = "proteogenomics"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 readme = "README.md"
 license = "MIT"
-authors = [ "Gaurav Sablok <gsablok@ibch.poznan.pl>"]
-description = "protein genomics analyzers"
-homepage = "https://github.com/IBCHgenomic/proteogenomics"
-repository = "https://github.com/IBCHgenomic/proteogenomics"
+authors = ["Gaurav Sablok <gsablok@ibch.poznan.pl>"]
+description = "proteogenomics"
+homepage = "https://github.com/genomicssport/proteogenomics"
+repository = "https://github.com/genomicsport/proteogenomics"
 
 [dependencies]
 clap = { version = "4.5.27", features = ["derive"] }
+figlet-rs = "0.1.5"
+tokio = { version = "1.47.1", features = ["full"] }
